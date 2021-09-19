@@ -35,10 +35,30 @@ namespace MyMVC
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            //    services.AddAuthentication()
+            //        .AddGoogle(options =>
+            //        {
+            //            options.ClientId = Configuration["Google:ClientId"];
+            //            options.ClientSecret = Configuration["Google:ClientSecret"];
+            //        }
+            //        )
+            //        .AddFacebook(options =>
+            //        {
+            //            options.ClientId = Configuration["Facebook:ClientId"];
+            //            options.ClientSecret = Configuration["Facebook:ClientSecret"];
+            //        }
+            //        )
+            //        .AddMicrosoftAccount(options =>
+            //        {
+            //            options.ClientId = Configuration["Microsoft:ClientId"];
+            //            options.ClientSecret = Configuration["Microsoft:ClientSecret"];
+            //        }
+            //        );
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
