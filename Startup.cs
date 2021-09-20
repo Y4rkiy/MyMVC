@@ -36,25 +36,25 @@ namespace MyMVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
-            //    services.AddAuthentication()
-            //        .AddGoogle(options =>
-            //        {
-            //            options.ClientId = Configuration["Google:ClientId"];
-            //            options.ClientSecret = Configuration["Google:ClientSecret"];
-            //        }
-            //        )
-            //        .AddFacebook(options =>
-            //        {
-            //            options.ClientId = Configuration["Facebook:ClientId"];
-            //            options.ClientSecret = Configuration["Facebook:ClientSecret"];
-            //        }
-            //        )
-            //        .AddMicrosoftAccount(options =>
-            //        {
-            //            options.ClientId = Configuration["Microsoft:ClientId"];
-            //            options.ClientSecret = Configuration["Microsoft:ClientSecret"];
-            //        }
-            //        );
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = Configuration["Authentication:Google:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                }
+                )
+                .AddFacebook(options =>
+                {
+                    options.ClientId = Configuration["Authentication:Facebook:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Facebook:ClientSecret"];
+                }
+                )
+                .AddMicrosoftAccount(options =>
+                {
+                    options.ClientId = Configuration["Authentication:Microsoft:ClientId"];
+                    options.ClientSecret = Configuration["Authentication:Microsoft:ClientSecret"];
+                }
+                );
         }
 
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
